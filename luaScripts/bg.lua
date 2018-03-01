@@ -8,7 +8,7 @@ rxPort = "0" -- in port.
 delayInterval = 1000 -- how long to wait between checking current bit-rate.
 
 -- Setup -- 
-print("starting background traffic generation\n");
+print("STARTUP COMPLETE\n");
 pktgen.screen("off"); -- uncomment this to shut the info screen off.
 
 -- pktgen.set(txPort, "rate", 100); -- set tx rate.
@@ -16,14 +16,15 @@ pktgen.screen("off"); -- uncomment this to shut the info screen off.
 pktgen.start(txPort);
 
 -- Run the benchmark -- 
-print("ts, Mbps");
-getRates = function (ts)
-	file = io.open("bg.txt", "a");
-	print(ts .. ", " .. pktgen.portStats(rxPort, "rate")[tonumber(rxPort)].mbits_rx);
+print("Rx Pkts / s");
+getRates = function ()
+	print(pktgen.portStats(rxPort, "rate")[tonumber(rxPort)].pkts_rx);
 	pktgen.delay(delayInterval);
 end
 
-while true do getRates(i) end
+while true do 
+	getRates() 
+end
 
 -- no stop / teardown --
 

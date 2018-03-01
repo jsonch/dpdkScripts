@@ -1,5 +1,6 @@
 . ./setDpdkPaths.bash
 ./allocHugePages.sh
+WORK_DIR=`pwd`
 cd $PKTGEN_DIR
 # -l <list of cores to use>
 # -n <number of memory channels (always for for dell 720s)
