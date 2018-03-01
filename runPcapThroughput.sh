@@ -2,7 +2,9 @@
 ./allocHugePages.sh
 WORK_DIR=`pwd`
 
-PCAP_FILE=$WORK_DIR/pcaps/iperfClient2Server.pcap
+# PCAP_FILE=$WORK_DIR/pcaps/iperfClient2Server.pcap
+
+PCAP_FILE=/home/jsonch/gits/P4Boosters/cpuBoosters/pcaps/tofinoProcessed_iperfClient2Server.pcap
 
 cd $PKTGEN_DIR
 # -l <list of cores to use>
