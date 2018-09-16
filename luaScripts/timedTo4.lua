@@ -24,6 +24,7 @@ pktgen.set_ipaddr(txPort, "dst", tgtIp)
 pktgen.set_ipaddr(txPort, "src", myIp)
 pktgen.set_mac(txPort, tgtMac)
 
+file = io.open("flowBw.csv", "w");
 
 print("STARTUP COMPLETE, sending packets.\n");
 
@@ -31,11 +32,13 @@ pktgen.start(txPort);
 
 print("Mbps");
 getRates = function (ts)
+	file:write(pktgen.portStats(txPort, "rate")[tonumber(txPort)].mbits_tx .. "\n");
 	print(pktgen.portStats(txPort, "rate")[tonumber(txPort)].mbits_tx);
 	pktgen.delay(1000);
 end
 for i=1,sendDuration,1 do getRates(i) end
 
 pktgen.stop(txPort);
+file:close();
 print ("traffig generation done.")
 pktgen.quit();
