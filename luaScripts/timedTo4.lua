@@ -28,10 +28,13 @@ file = io.open("flowBw.csv", "w");
 
 print("STARTUP COMPLETE, sending packets.\n");
 
-pktgen.start(txPort);
+-- pktgen.start(txPort);
 
 print("Mbps");
 getRates = function (ts)
+	pktgen.set(txPort, "count", 1000) -- set burst size.
+	pktgen.start(txPort)
+
 	file:write(pktgen.portStats(txPort, "rate")[tonumber(txPort)].mbits_tx .. "\n");
 	print(pktgen.portStats(txPort, "rate")[tonumber(txPort)].mbits_tx);
 	pktgen.delay(1000);
