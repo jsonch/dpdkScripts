@@ -2,7 +2,7 @@
 
 
 -- Config --
-sendDuration = 30
+sendDuration = 15000
 txPort = "0" -- out port.
 myIp = "10.0.0.1/24"
 
@@ -17,6 +17,7 @@ pktgen.screen("off"); -- uncomment this to shut the info screen off.
 -- end
 
 -- Run --
+pktgen.set(txPort, "count", 1249) -- set burst size.
 pktgen.set(txPort, "burst", 64);
 pktgen.set(txPort, "rate", 100); -- 50.08);
 pktgen.set(txPort, "size", 1024);
@@ -32,12 +33,11 @@ print("STARTUP COMPLETE, sending packets.\n");
 
 print("Mbps");
 getRates = function (ts)
-	pktgen.set(txPort, "count", 1000) -- set burst size.
 	pktgen.start(txPort)
 
 	file:write(pktgen.portStats(txPort, "rate")[tonumber(txPort)].mbits_tx .. "\n");
 	print(pktgen.portStats(txPort, "rate")[tonumber(txPort)].mbits_tx);
-	pktgen.delay(1000);
+	pktgen.delay(1);
 end
 for i=1,sendDuration,1 do getRates(i) end
 
