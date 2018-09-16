@@ -17,8 +17,8 @@ pktgen.screen("off"); -- uncomment this to shut the info screen off.
 -- end
 
 -- Run --
-pktgen.set(txPort, "rate", 50);
-pktgen.set(txPort, "size", 1400);
+pktgen.set(txPort, "rate", 50.1);
+pktgen.set(txPort, "size", 1024);
 pktgen.set_ipaddr(txPort, "dst", tgtIp)
 pktgen.set_ipaddr(txPort, "src", myIp)
 pktgen.set_mac(txPort, tgtMac)
@@ -27,7 +27,14 @@ pktgen.set_mac(txPort, tgtMac)
 print("STARTUP COMPLETE, sending packets.\n");
 
 pktgen.start(txPort);
-pktgen.delay(sendDuration*1000);
+
+print("ts, Mbps");
+getRates = function (ts)
+	print(ts .. ", " .. pktgen.portStats(txPort, "rate")[tonumber(txPort)].mbits_tx);
+	pktgen.delay(1000);
+end
+for i=1,sendDuration,1 do getRates(i) end
+
 pktgen.stop(txPort);
 print ("traffig generation done.")
 pktgen.quit();
