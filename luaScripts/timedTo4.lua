@@ -17,7 +17,8 @@ pktgen.screen("off"); -- uncomment this to shut the info screen off.
 -- end
 
 -- Run --
-pktgen.set(txPort, "rate", 50.1);
+pktgen.set(txPort, "burst", 1);
+pktgen.set(txPort, "rate", 50.61);
 pktgen.set(txPort, "size", 1024);
 pktgen.set_ipaddr(txPort, "dst", tgtIp)
 pktgen.set_ipaddr(txPort, "src", myIp)
