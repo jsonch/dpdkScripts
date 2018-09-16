@@ -2,6 +2,7 @@
 
 
 -- Config --
+sendDuration = 30
 txPort = "0" -- out port.
 myIp = "10.0.0.1/24"
 
@@ -26,7 +27,7 @@ pktgen.set_mac(txPort, tgtMac)
 print("STARTUP COMPLETE, sending packets.\n");
 
 pktgen.start(txPort);
-pktgen.delay(10*1000);
+pktgen.delay(sendDuration*1000);
 pktgen.stop(txPort);
 print ("traffig generation done.")
 pktgen.quit();
