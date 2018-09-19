@@ -2,7 +2,7 @@
 
 
 -- Config --
-sendDuration = 30
+sendDuration = 10
 txPort = "0" -- out port.
 myIp = "10.0.0.2/24"
 
