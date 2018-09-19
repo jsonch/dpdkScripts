@@ -1,6 +1,6 @@
 burstRate = 25
-burstDuration = 5
-sendDuration = 5 -- warmup traffic.
+burstDuration = 10
+sendDuration = 10 -- warmup traffic.
 -- send background traffic.
 
 -- Config --
