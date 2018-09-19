@@ -24,7 +24,7 @@ pktgen.set_ipaddr(txPort, "dst", tgtIp)
 pktgen.set_ipaddr(txPort, "src", myIp)
 pktgen.set_mac(txPort, tgtMac)
 
-file = io.open("txBw.csv", "w");
+file = io.open("rxBw.csv", "w");
 
 print("STARTUP COMPLETE, sending packets.\n");
 
