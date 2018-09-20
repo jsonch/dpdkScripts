@@ -1,10 +1,9 @@
-burstRate = 25
-burstDuration = 10
-sendDuration = 10 -- warmup traffic.
+sendRate=22
 -- send background traffic.
 
+
 -- Config --
--- sendDuration = 10
+sendDuration = 20
 txPort = "0" -- out port.
 myIp = "10.0.0.2/24"
 
@@ -19,8 +18,8 @@ pktgen.screen("off"); -- uncomment this to shut the info screen off.
 -- end
 
 -- Run --
-pktgen.set(txPort, "burst", 64);
-pktgen.set(txPort, "rate", 7);
+-- pktgen.set(txPort, "burst", 1);
+pktgen.set(txPort, "rate", sendRate);
 pktgen.set(txPort, "size", 200);
 pktgen.set_ipaddr(txPort, "dst", tgtIp)
 pktgen.set_ipaddr(txPort, "src", myIp)
@@ -41,15 +40,6 @@ getRates = function (ts)
 end
 for i=1,sendDuration,1 do getRates(i) end
 
-
--- Now change to high tput.
-pktgen.set(txPort, "rate", burstRate);
-getRates = function (ts)
-	file:write(pktgen.portStats(txPort, "rate")[tonumber(txPort)].mbits_rx .. "\n");
-	print(pktgen.portStats(txPort, "rate")[tonumber(txPort)].mbits_rx);
-	pktgen.delay(1000);
-end
-for i=1,burstDuration,1 do getRates(i) end
 
 
 pktgen.stop(txPort);
