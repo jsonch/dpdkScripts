@@ -2,7 +2,7 @@
 
 
 -- Config --
-sendDuration = 20
+sendDuration = 10
 txPort = "0" -- out port.
 myIp = "10.0.0.2/24"
 
@@ -18,7 +18,7 @@ pktgen.screen("off"); -- uncomment this to shut the info screen off.
 
 -- Run --
 pktgen.set(txPort, "burst", 1);
-pktgen.set(txPort, "rate", 40);
+pktgen.set(txPort, "rate", 80);
 pktgen.set(txPort, "size", 200);
 pktgen.set_ipaddr(txPort, "dst", tgtIp)
 pktgen.set_ipaddr(txPort, "src", myIp)
