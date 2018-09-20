@@ -1,4 +1,4 @@
-burstRate = 25
+burstRate = 29
 burstDuration = 10
 sendDuration = 10 -- warmup traffic.
 -- send background traffic.
