@@ -1,7 +1,7 @@
 burstSize=1
 -- configurable burst size.
 -- send at 4 Gb/s for 50% total utilization.
-sendRate=10
+sendRate=40
 -- send background traffic.
 
 
