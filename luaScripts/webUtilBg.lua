@@ -1,4 +1,4 @@
-pktRate=50
+pktRate=10
 
 -- send background traffic.
 
