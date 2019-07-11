@@ -10,7 +10,7 @@ tar -xzf pktgen-3.4.9.tar.gz
 echo "building pktGen..."
 cd pktgen-3.4.9
 # enlarge rx pcap buffer.
-sed -i 's/(4 \* (1024 \* 1024))/(128 \* (1024 \* 1024))/g' app/pktgen-capture.c
+# sed -i 's/(4 \* (1024 \* 1024))/(128 \* (1024 \* 1024))/g' app/pktgen-capture.c
 make
 
 # cleanup
