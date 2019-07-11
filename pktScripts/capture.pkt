@@ -1,0 +1,4 @@
+enable 0 capture
+sleep 10
+disable 0 capture
+quit
