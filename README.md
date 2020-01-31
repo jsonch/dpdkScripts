@@ -13,7 +13,7 @@ Scripts to install and use DPDK packet generator.
 
 ##### Using the pktgen cli
 
-Once pktGen initializes it will launch a large cli that displays a per-interface column. Look at the third row from the top ("link state") to determine if the link is up. It should say something like <UP-25000-FD> if the port is up.
+Once pktGen initializes it will launch a large cli that displays a per-interface column. Look at the third row from the top ("link state") to determine if the link is up. It should say something like ```<UP-25000-FD>``` if the port is up.
 
 A few important commands: 
 
